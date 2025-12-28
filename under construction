@@ -1,631 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tradesofgod Academy | Professional Forex Trading</title>
-  <meta name="description" content="Tradesofgod Academy is a luxury Forex trading mentorship focused on price action, smart money concepts, and disciplined risk management." />
-  <meta name="keywords" content="Forex mentorship Nigeria, Forex trading academy, smart money concepts, price action trading, Tradesofgod Academy" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>TradesofGod Academy</title>
+  <meta name="description" content="TradesofGod Academy – Luxury Forex Mentorship & Trading Education" />
   <style>
-    html{scroll-behavior:smooth;}
-    .fade-up{opacity:0;transform:translateY(30px);transition:all 0.8s ease;}
-    .fade-up.visible{opacity:1;transform:translateY(0);}
     :root {
-      --bg-dark: #000000;
-      --bg-light: #0f0f0f;
-      --accent: #d4af37;
-      --text-main: #ffffff;
-      --text-muted: #b5b5b5;
-      --glow: 0 0 15px rgba(212,175,55,0.6);
+      --black: #0b0b0b;
+      --gold: #d4af37;
+      --white: #ffffff;
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      background: var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
     }
-
     header {
-      padding: 0.5rem 5%;
+      position: fixed;
+      top: 0; left: 0; right: 0;
       height: 60px;
+      background: rgba(0,0,0,0.9);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      background: transparent;
-      backdrop-filter: blur(10px);
-      z-index: 100;
-      transition: all 0.3s ease;
-    }
-
-    header.shrink {
-      height: 50px;
-      background: rgba(0,0,0,0.95);
-    }
-
-    header.shrink {
-      height: 50px;
-      padding: 0.3rem 5%;
-    }
-
-    nav {
-      padding: 0.5rem 5%;
-      height: 60px;
-      display: flex;
       justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      background: rgba(11,15,26,0.9);
-      backdrop-filter: blur(10px);
-      z-index: 100;
+      padding: 0 20px;
+      z-index: 1000;
+      border-bottom: 1px solid var(--gold);
     }
-
-    header h1 {
-      color: var(--accent);
-      font-size: 1.2rem;
-      line-height: 1;
-    }
-
+    header img { height: 40px; }
     nav a {
-      color: var(--text-main);
-      margin-left: 1rem;
+      color: var(--gold);
+      margin-left: 15px;
       text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      position: relative;
-      line-height: 60px;
+      font-size: 14px;
     }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      bottom: 10px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-
-    nav a:hover::after,
-    nav a.active::after {
-      width: 100%;
-    }
-
-    .nav-cta {
-      color: var(--text-main);
-      margin-left: 1rem;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      line-height: 60px;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
     section {
-      padding: 4rem 5%;
-    }
-
-    .hero {
-      min-height: 90vh;
+      min-height: 100vh;
+      padding: 80px 20px 40px;
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
+      text-align: center;
     }
-
-    .hero h2 {
-      font-size: 3rem;
+    h1, h2 {
+      color: var(--gold);
+      margin-bottom: 15px;
     }
-
-    .hero span {
-      color: var(--accent);
-    }
-
-    .hero p {
-      max-width: 600px;
-      margin: 1rem 0 2rem;
-      color: var(--text-muted);
-    }
-
+    p { max-width: 700px; line-height: 1.6; }
     .btn {
       display: inline-block;
-      padding: 0.8rem 1.8rem;
-      border-radius: 30px;
-      background: var(--accent);
-      color: #000;
-      font-weight: 600;
+      margin-top: 20px;
+      padding: 12px 24px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
       text-decoration: none;
-      margin-right: 1rem;
+      border-radius: 4px;
     }
-
-    .btn.outline {
-      background: transparent;
-      color: var(--accent);
-      border: 2px solid var(--accent);
+    .floating {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
     }
-
-    h3 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .floating img {
+      width: 48px;
+      height: 48px;
     }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: var(--bg-light);
-      padding: 2rem;
-      border-radius: 15px;
-    }
-
-    .card h4 {
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      color: var(--text-muted);
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-      text-align: center;
-    }
-
-    .stat {
-      background: var(--bg-light);
-      padding: 2rem;
-      border-radius: 15px;
-    }
-
-    .stat h4 {
-      font-size: 2rem;
-      color: var(--accent);
-    }
-
     footer {
-      padding: 2rem 5%;
-      background: var(--bg-light);
+      padding: 20px;
       text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      border-top: 1px solid var(--gold);
     }
-
-    form {
-      max-width: 600px;
-      margin-top: 2rem;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 0.8rem;
-      margin-bottom: 1rem;
-      border-radius: 10px;
-      border: none;
-      background: #1a1f3c;
-      color: #fff;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    @media(max-width: 768px) {
-      .hero h2 { font-size: 2.2rem; }
-    }
-
-    /* Floating icon effects */
-    .float-icon img { transition: transform 0.3s ease; }
-    .float-icon:hover img { transform: scale(1.15); }
-
-    .pulse {
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
-      70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
-      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
-    }
-
-    .tooltip {
-      position:absolute;
-      right:70px;
-      background:#000;
-      color:#fff;
-      padding:6px 10px;
-      border-radius:6px;
-      font-size:12px;
-      opacity:0;
-      pointer-events:none;
-      transition:opacity 0.3s ease;
-      white-space:nowrap;
-    }
-
-    .float-icon:hover .tooltip { opacity:1; }
-    }
-        margin-left: 1.5rem;
-      padding: 8px 16px;
-      background: linear-gradient(135deg, #d4af37, #b8962e);
-      color: #000;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-decoration: none;
-      box-shadow: var(--glow);
-      transition: transform 0.3s ease;
-    }
-
-    .nav-cta:hover { transform: translateY(-2px); }
-
-    .menu-toggle { display:none; font-size:1.6rem; cursor:pointer; color:var(--accent); }
-
-    @media (max-width: 768px) {
-      nav { position:absolute; top:60px; right:0; background:#000; flex-direction:column; width:220px; padding:1rem; display:none; }
-      nav.open { display:flex; }
-      nav a { line-height:normal; margin:0.8rem 0; }
-      .nav-cta { margin-top:1rem; }
-      .menu-toggle { display:block; }
-    }
-</style>
+  </style>
 </head>
-<body>
-
-<header id="header" class="transparent">
-  <div style="display:flex;align-items:center;gap:10px;">
-    <svg width="36" height="36"><use href="#lionBearLogo"/></svg>
-    <h1>Tradesofgod <span style="color:var(--accent)">Academy</span></h1>
-  </div>
-  <div class="menu-toggle" id="menuToggle">☰</div>
-<nav id="navMenu">
+<body><header>
+  <img src="logo.png" alt="TradesofGod Academy Logo" />
+  <nav>
+    <a href="#home">Home</a>
     <a href="#about">About</a>
-    <a href="#strategy">Strategy</a>
-    <a href="#results">Results</a>
     <a href="#mentorship">Mentorship</a>
-    <a href="#disclaimer">Disclaimer</a>
+    <a href="#performance">Performance</a>
+    <a href="#book">Book Call</a>
     <a href="#contact">Contact</a>
-  <a href="https://calendly.com/ilogbenuc1/30min" target="_blank" class="nav-cta">Book a Call</a>
-</nav>
-</header>
-
-<!-- SVG LOGO DEFINITIONS -->
-<svg width="0" height="0" style="position:absolute">
-  <defs>
-    <symbol id="lionBearLogo" viewBox="0 0 200 200">
-      <circle cx="100" cy="100" r="95" fill="none" stroke="#d4af37" stroke-width="6"/>
-      <!-- Lion (Bullish) -->
-      <path d="M60 120 C40 90, 45 60, 70 55 C85 40, 115 40, 130 55 C155 60, 160 90, 140 120" fill="none" stroke="#d4af37" stroke-width="4"/>
-      <!-- Bear (Bearish) -->
-      <path d="M60 120 C70 145, 130 145, 140 120" fill="none" stroke="#d4af37" stroke-width="4"/>
-      <text x="100" y="175" text-anchor="middle" fill="#d4af37" font-size="16" font-weight="700">TGA</text>
-    </symbol>
-  </defs>
-</svg>
-
-<section class="hero fade-up">
-  <h2>Professional <span>Forex Trading Academy</span></h2>
-  <p>Disciplined, data-driven trading with strict risk management and consistent execution.</p>
-  <a href="#strategy" class="btn">View Strategy</a>
-  <a href="#contact" class="btn outline">Contact Me</a>
-</section>
-
-<section class="fade-up" id="about">
-  <h3>About Me</h3>
-  <p>I am a professional Forex trader focused on high-probability setups, risk management, and long-term consistency. I trade major currency pairs, gold, and indices using a rule-based approach.</p>
-</section>
-
-<section class="fade-up" id="strategy">
-  <h3>Trading Strategy</h3>
-  <div class="grid">
-    <div class="card"><h4>Style</h4><p>Price Action / Smart Money Concepts</p></div>
-    <div class="card"><h4>Timeframes</h4><p>M15 – H1 entries, H4 bias</p></div>
-    <div class="card"><h4>Sessions</h4><p>London & New York</p></div>
-    <div class="card"><h4>Risk Reward</h4><p>Minimum 1:2 per trade</p></div>
+  </nav>
+</header><section id="home">
+  <div>
+    <h1>TradesofGod Academy</h1>
+    <p>Luxury Forex mentorship built on discipline, risk management, and consistent profitability.</p>
+    <a href="#book" class="btn">Book a Free Call</a>
   </div>
-</section>
-
-<section class="fade-up" id="results">
-  <h3>Performance Overview</h3>
-  <div class="stats">
-    <div class="stat"><h4>62%</h4><p>Win Rate</p></div>
-    <div class="stat"><h4>1:2.5</h4><p>Avg Risk/Reward</p></div>
-    <div class="stat"><h4>3–6%</h4><p>Monthly Growth</p></div>
+</section><section id="about">
+  <div>
+    <h2>About Us</h2>
+    <p>TradesofGod Academy is a premium trading education brand focused on building disciplined traders who understand risk, structure, and long-term consistency in the Forex market.</p>
   </div>
-
-  <div style="margin-top:3rem;">
-    <h4 style="margin-bottom:1rem;color:var(--accent);">Verified Performance (MyFXBook)</h4>
-    <iframe src="https://www.myfxbook.com/widget/community-outlook?symbol=EURUSD" width="100%" height="400" frameborder="0"></iframe>
+</section><section id="mentorship">
+  <div>
+    <h2>Mentorship Program</h2>
+    <p>One-on-one guidance, market structure mastery, live analysis, psychology coaching, and lifetime support.</p>
+    <p><strong>Payment Details:</strong><br>United Bank of Africa<br>2141942678<br>Ilogbenu Chimezie Chukwuemeka</p>
   </div>
-
-  <p style="margin-top:1.5rem;color:var(--text-muted);">* Past performance does not guarantee future results. Trading involves risk.</p>
-</section>
-
-<section class="fade-up" id="disclaimer">
-  <h3>Risk Disclaimer</h3>
-  <div class="card">
-    <p>Trading foreign exchange (Forex), CFDs, and other financial instruments involves a high level of risk and may not be suitable for all investors. You may lose some or all of your invested capital. Tradesofgod Academy does not guarantee profits or specific trading results.</p>
-
-    <p>Past performance, trading results, or shared analytics are not indicative of future outcomes. All information provided on this website is for educational purposes only and should not be considered financial advice.</p>
-
-    <p>You are solely responsible for your trading decisions. Before engaging in live trading, ensure you fully understand the risks involved and seek independent financial advice if necessary.</p>
+</section><section id="performance">
+  <div>
+    <h2>Live Performance</h2>
+    <p>Verified trading performance via MyFXBook (embed here).</p>
   </div>
-</section>
-
-<section class="fade-up" id="testimonials">
-  <h3>Student Results & Testimonials</h3>
-  <div class="grid">
-    <div class="card"><p>“Joining Tradesofgod Academy changed my consistency completely. Risk management finally clicked.”</p><strong>— Student A</strong></div>
-    <div class="card"><p>“No hype, just structure and clarity. This mentorship is elite.”</p><strong>— Student B</strong></div>
-    <div class="card"><p>“I passed my first prop firm challenge using the system taught here.”</p><strong>— Student C</strong></div>
+</section><section id="book">
+  <div>
+    <h2>Book a Strategy Call</h2>
+    <iframe src="https://calendly.com/ilogbenuc1/30min" width="100%" height="600" frameborder="0"></iframe>
   </div>
-</section>
-
-<section class="fade-up" id="mentorship">
-  <div style="margin-bottom:2rem;">
-    <a href="https://wa.me/2347064098155?text=Hello%20Tradesofgod%20Academy%2C%20I%20want%20to%20join%20your%20Forex%20mentorship." target="_blank" class="btn">Chat About Mentorship</a>
-    <a href="https://wa.me/2347064098155?text=Hello%20Tradesofgod%20Academy%2C%20I%20need%20help%20preparing%20for%20a%20prop%20firm%20challenge." target="_blank" class="btn outline" style="margin-left:1rem;">Ask About Prop Firms</a>
+</section><section id="contact">
+  <div>
+    <h2>Contact</h2>
+    <p>Email: ilogbenuc1@gmail.com</p>
+    <p>Phone: 07064098155</p>
+    <p>Instagram: @Tradesofgodacademy</p>
   </div>
-  <h3>Forex Mentorship Program</h3>
-  <div class="grid">
-    <div class="card">
-      <h4>What You Get</h4>
-      <p>• Structured trading curriculum<br>• Live market breakdowns<br>• Risk management mastery<br>• Psychology & discipline training</p>
-    </div>
-    <div class="card">
-      <h4>Who This Is For</h4>
-      <p>• Beginners seeking structure<br>• Struggling traders needing consistency<br>• Traders preparing for prop firms</p>
-    </div>
-    <div class="card">
-      <h4>Program Focus</h4>
-      <p>• Price Action & Smart Money Concepts<br>• High-probability setups<br>• Capital protection first</p>
-    </div>
+</section><section id="risk">
+  <div>
+    <h2>Risk Disclaimer</h2>
+    <p>Forex trading involves significant risk and may not be suitable for all investors. Past performance does not guarantee future results.</p>
   </div>
-
-  <div style="margin-top:2rem;">
-    <a href="https://calendly.com/ilogbenuc1/30min" target="_blank" class="btn">Apply for Mentorship</a>
-    <a href="#" class="btn outline" style="margin-left:1rem;">Enroll Now</a>
-
-  <div class="card" style="margin-top:2rem;">
-    <h4 style="color:var(--accent);">Payment Details</h4>
-    <p><strong>Bank:</strong> United Bank for Africa (UBA)</p>
-    <p><strong>Account Number:</strong> 2141942678</p>
-    <p><strong>Account Name:</strong> Ilogbenu Chimezie Chukwuemeka</p>
-
-    <div style="margin-top:1.5rem;">
-      <a href="https://wa.me/2347064098155?text=Hello%20Tradesofgod%20Academy%2C%20I%20have%20made%20payment%20for%20the%20mentorship.%20Please%20find%20my%20proof%20of%20payment%20attached." target="_blank" class="btn">Confirm Payment on WhatsApp</a>
-    </div>
-
-    <p style="margin-top:1rem;color:var(--text-muted);font-size:0.9rem;">After payment, please send proof of payment via WhatsApp to gain access and receive your onboarding guide.</p>
-
-    <div style="margin-top:1.5rem; background:#0f0f0f; padding:1rem; border-radius:10px; font-size:0.85rem; color:var(--text-muted);">
-      <strong style="color:var(--accent);">Terms & Conditions</strong><br><br>
-      • All payments are non-refundable once mentorship access is granted.<br>
-      • Tradesofgod Academy does not guarantee profits or specific results.<br>
-      • Mentorship content is for educational purposes only.<br>
-      • Account sharing or redistribution of materials is prohibited.
-    </div>
-  </div>
-  </div>
-</section>
-
-<section class="fade-up" id="contact">
-  <h3>Contact Me</h3>
-  <p>You can reach Tradesofgod Academy directly using the details below or book a private consultation.</p>
-
-  <div class="card" style="margin-top:1.5rem;">
-    <p><strong>Email:</strong> <a href="mailto:ilogbenuc1@gmail.com" style="color:var(--accent);text-decoration:none;">ilogbenuc1@gmail.com</a></p>
-    <p><strong>Phone:</strong> <a href="tel:07064098155" style="color:var(--accent);text-decoration:none;">07064098155</a></p>
-  </div>
-
-  <div style="margin-top:2rem;">
-    <a href="https://calendly.com/ilogbenuc1/30min" target="_blank" class="btn">Book a Call</a>
-  </div>
-
-  <form style="margin-top:2rem;" action="mailto:ilogbenuc1@gmail.com" method="POST" enctype="text/plain">
-    <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Your Email" required />
-    <textarea rows="5" placeholder="Your Message"></textarea>
-    <button class="btn">Send Message</button>
-  </form>
-</section>
-
-<!-- Countdown Timer Section -->
-<section class="section" id="countdown">
-  <h2 class="section-title">Next Mentorship Intake</h2>
-  <p style="text-align:center;color:var(--text-muted);">Enrollment closes in:</p>
-  <div id="timer" style="display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;font-size:1.2rem;">
-    <div><strong id="days">00</strong><br>Days</div>
-    <div><strong id="hours">00</strong><br>Hours</div>
-    <div><strong id="minutes">00</strong><br>Minutes</div>
-    <div><strong id="seconds">00</strong><br>Seconds</div>
-  </div>
-</section>
-
-<!-- Testimonial Submission Section -->
-<section class="section" id="testimonials">
-  <h2 class="section-title">Student Testimonials</h2>
-  <p style="text-align:center;color:var(--text-muted);">Verified reviews from our students</p>
-
-  <!-- Display Approved Testimonials -->
-  <div id="testimonial-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem;"></div>
-
-  <!-- Submission Form -->
-  <form class="card" style="max-width:500px;margin:3rem auto;" onsubmit="submitTestimonial(event)">
-    <h3 style="color:var(--accent);margin-bottom:1rem;">Submit Your Testimonial</h3>
-
-    <label>Full Name</label>
-    <input type="text" id="tName" required>
-
-    <label style="margin-top:1rem;">Instagram Handle (optional)</label>
-    <input type="text" id="tHandle">
-
-    <label style="margin-top:1rem;">Your Experience</label>
-    <textarea rows="4" id="tMessage" required></textarea>
-
-    <button type="submit" class="btn" style="margin-top:1.5rem;">Submit for Approval</button>
-    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.8rem;">Testimonials are reviewed before publishing.</p>
-  </form>
-</section>
-
-<!-- Certificate Section -->
-<section class="section" id="certificate">
-  <h2 class="section-title">Certificate of Completion</h2>
-  <p style="text-align:center;color:var(--text-muted);">Issued to students who successfully complete the mentorship</p>
-
-  <div class="card" style="max-width:600px;margin:2rem auto;text-align:center;">
-    <h3 style="color:var(--accent);">Tradesofgod Academy</h3>
-    <p>This certifies that</p>
-    <h2 style="margin:1rem 0;">Student Name</h2>
-    <p>has successfully completed the Forex Mentorship Program</p>
-    <p style="margin-top:1.5rem;font-size:0.9rem;">Issued & signed by Tradesofgod Academy</p>
-  </div>
-</section>
-
-<!-- Intake Limit -->
-<section class="section" id="slots">
-  <h2 class="section-title">Mentorship Slots</h2>
-  <p style="text-align:center;color:var(--text-muted);">Limited availability per intake</p>
-  <div style="text-align:center;margin-top:1.5rem;font-size:1.3rem;">
-    <strong id="slotsLeft" style="color:var(--accent);">7</strong> slots remaining
-  </div>
-</section>
-
-<script>
-  // Testimonials (Admin-approved only)
-  const approvedTestimonials = [
-    { name: "John D.", handle: "@johnfx", message: "Very structured mentorship. Worth every naira." },
-    { name: "Samuel K.", handle: "@samtrades", message: "Risk management changed my trading completely." }
-  ];
-
-  const list = document.getElementById('testimonial-list');
-  approvedTestimonials.forEach(t => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `<p>“${t.message}”</p><strong>${t.name}</strong><br><span style='color:var(--text-muted);'>${t.handle}</span>`;
-    list.appendChild(card);
-  });
-
-  function submitTestimonial(e) {
-    e.preventDefault();
-    alert('Thank you! Your testimonial has been submitted for review.');
-    e.target.reset();
-  }
-
-  // Slot Counter
-  let slots = 7;
-  const slotEl = document.getElementById('slotsLeft');
-  setInterval(() => {
-    if (slots > 1) {
-      slots--;
-      slotEl.textContent = slots;
-    }
-  }, 60000);
-</script>
-
-<script>
-  const countDownDate = new Date("Dec 31, 2025 23:59:59").getTime();
-  const timer = setInterval(function () {
-    const now = new Date().getTime();
-    const distance = countDownDate - now;
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
-
-    if (distance < 0) {
-      clearInterval(timer);
-      document.getElementById("timer").innerHTML = "Enrollment Closed";
-    }
-  }, 1000);
-</script>
-
-<footer>
-  <p>© 2025 Tradesofgod Academy. All Rights Reserved.</p>
-  <p style="margin-top:0.5rem;">Forex trading involves risk. Trade responsibly.</p>
-</footer>
-
-<!-- WhatsApp Auto Reply Script (Manual CRM Guide)
-DAY RESPONSE:
-Hello 👋 Welcome to Tradesofgod Academy.
-Please choose an option:
-1️⃣ Forex Mentorship
-2️⃣ Prop Firm Preparation
-3️⃣ General Inquiry
-
-NIGHT RESPONSE:
-Hello 👋 Thank you for contacting Tradesofgod Academy.
-We’ve received your message and will respond shortly.
-Meanwhile, please let us know if you’re interested in:
-1️⃣ Mentorship
-2️⃣ Prop Firm Prep
--->
-
-<!-- Floating Social Buttons -->
-<!-- WhatsApp Funnels -->
-<a href="https://wa.me/2347064098155?text=Hello%20Tradesofgod%20Academy%2C%20I%20want%20to%20learn%20about%20your%20Forex%20mentorship.%20Please%20share%20details." target="_blank" class="float-icon pulse" style="position:fixed;bottom:160px;right:25px;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;z-index:999;background:#000;">
-  <span class="tooltip">Mentorship Chat</span>
-  <img src="whatsapp.png" alt="WhatsApp" style="width:32px;height:32px;" />
-</a>
-
-<a href="https://wa.me/2347064098155?text=Hello%20Tradesofgod%20Academy%2C%20I%20am%20interested%20in%20prop%20firm%20preparation.%20Please%20share%20details." target="_blank" class="float-icon" style="position:fixed;bottom:90px;right:25px;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;z-index:999;background:#000;">
-  <span class="tooltip">Prop Firm Prep</span>
-  <img src="whatsapp.png" alt="WhatsApp" style="width:32px;height:32px;" />
-</a>
-<a href="https://wa.me/2347064098155?text=Hello%20Tradesofgod%20Academy%2C%20I%20am%20interested%20in%20your%20Forex%20mentorship.%20Please%20share%20details." target="_blank" class="float-icon pulse" style="position:fixed;bottom:90px;right:25px;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;z-index:999;background:#000;">
-  <span class="tooltip">Start Mentorship Chat</span>
-  <img src="whatsapp.png" alt="WhatsApp" style="width:32px;height:32px;" />
-</a>
-<a href="https://instagram.com/Tradesofgodacademy" target="_blank" class="float-icon" style="position:fixed;bottom:25px;right:25px;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;z-index:999;background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);">
-  <span class="tooltip">Follow on Instagram</span>
-  <img src="instagram.png" alt="Instagram" style="width:32px;height:32px;background:#000;border-radius:8px;" />
-</a>
-
-
-<script>
-const header=document.getElementById('header');
-const menuToggle=document.getElementById('menuToggle');
-const navMenu=document.getElementById('navMenu');
-window.addEventListener('scroll',()=>header.classList.toggle('shrink',window.scrollY>50));
-menuToggle.addEventListener('click',()=>navMenu.classList.toggle('open'));
-
-// scroll spy
-const sections=document.querySelectorAll('section');
-const navLinks=document.querySelectorAll('nav a');
-window.addEventListener('scroll',()=>{
- let current='';
- sections.forEach(sec=>{if(window.scrollY>=sec.offsetTop-120) current=sec.id;});
- navLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+current);});
-});
-
-// animations
-const observer=new IntersectionObserver(entries=>{
- entries.forEach(entry=>{if(entry.isIntersecting) entry.target.classList.add('visible');});
-},{threshold:0.15});
-document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
-</script>
-</body>
+</section><div class="floating">
+  <a href="https://wa.me/2347064098155"><img src="whatsapp.png" alt="WhatsApp" /></a>
+  <a href="https://instagram.com/Tradesofgodacademy"><img src="instagram.png" alt="Instagram" /></a>
+</div><footer>
+  <p>© 2025 TradesofGod Academy. All rights reserved.</p>
+</footer></body>
 </html>
